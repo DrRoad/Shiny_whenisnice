@@ -26,7 +26,7 @@ shinyUI(fluidPage(theme = shinytheme("cosmo"),
     sliderInput("rain_threshold", 
                 "Maximum rain (mm)", 
                 min = 1,
-                max = 2000, 
+                max = 10, 
                 value = 1)
   ),
   
@@ -37,12 +37,12 @@ shinyUI(fluidPage(theme = shinytheme("cosmo"),
                '#text_set_temp {background-color: rgba(255,255,0,0.40); color: green;}'),
     tags$style(type='text/css',
                '#text_set_rain {background-color: rgba(255,255,0,0.40); color: green;}'),
-    h5("Green=nice, Grey=not nice"),
-    h3("For it to be a nice day:"),
-    h3("The high must have been at least ",
+    h5("Green=nice day, Grey=not nice day. Use the sliders to adjust the definition of nice."),
+    h4("For it to be a nice day:"),
+    h4("The high must have been at least ",
        textOutput("text_set_temp", inline=T)," degrees and it could rain a maximum of ",
-       textOutput("text_set_rain", inline=T),"mm."),
-    h5("Use the sliders to adjust the definition of nice."),
+       textOutput("text_set_rain", inline=T),"mm over the course of the day."),
+    h5(""),
     plotOutput("plot")
   )
 ))

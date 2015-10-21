@@ -11,13 +11,13 @@ shinyServer(function(input, output) {
 output$plot <- renderPlot({
     
   # years we want
-  years <- 13:(13-input$years_back+1)
-  years <- paste("Cam2", formatC(years, width=3, flag="0"), sep="")
+  years <- 13:(13-input$years_back+1) # vector of years
+  years <- paste("Cam2", formatC(years, width=3, flag="0"), sep="") # with cam in front
 
     
   # Calculate nice
   for(i in years){
-    i_yearnice <- paste0(i,"_isitnice")
+    i_yearnice <- paste0(i,"_isitnice") # Cam2_year_isitnice
     assign(i_yearnice, ifelse(
       eval(parse(text=paste0(i,"$HighDegC"))) > input$temp_threshold & 
       eval(parse(text=paste0(i,"$RainMM"))) < input$rain_threshold,
