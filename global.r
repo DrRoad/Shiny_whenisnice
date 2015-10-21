@@ -32,7 +32,11 @@ plotCalendar <- function(dates, values, date.form = "%Y-%m-%d") {
   numweeks <- as.numeric(timespan, units="weeks") + 2
   
   # Setup blank plot
-  plot(0, 0, type="n", xlim=c(0, numweeks), ylim=c(0, 8), asp=1, xaxt='n', yaxt='n', ann=FALSE, bty="n")
+  plot(0, 0, type="n", 
+       xlim=c(0, numweeks), 
+       ylim=c(0, 8), asp=1, 
+       xaxt='n', yaxt='n', 
+       ann=FALSE, bty="n")
   
   # Draw days
   for (i in 1:length(dates)) {
